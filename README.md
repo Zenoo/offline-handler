@@ -6,7 +6,7 @@ Allow your users to use your website while offline easily
 
 * **Installation**
 
-Simply import `OfflineHandler.min.js` into your HTML **and** download [`OfflineHandler-sw.min.js`](https://raw.githubusercontent.com/Zenoo/offline-handler/master/OfflineHandler-sw.min.js) **at the root of your project**.
+Simply import `OfflineHandler.min.js` into your HTML **and** download <a href="https://raw.githubusercontent.com/Zenoo/offline-handler/master/OfflineHandler-sw.min.js" target="_blank">`OfflineHandler-sw.min.js`</a> **at the root of your project**.
 ```
 <script src="https://gitcdn.link/repo/Zenoo/offline-handler/master/OfflineHandler.min.js"></script>	
 ```
