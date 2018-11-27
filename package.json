@@ -1,6 +1,6 @@
 {
   "name": "offline-handler",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Allow your users to use your website while offline easily",
   "main": "OfflineHandler.js",
   "scripts": {
