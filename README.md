@@ -12,10 +12,14 @@ Simply import `OfflineHandler.min.js` into your HTML **and** download <a href="h
 ```
 * **How to use**
 
-Create a new [`OfflineHandler`](https://zenoo.github.io/offline-handler/OfflineHandler.html) object with the ressources to be cached as the first parameter :
+ - Create a new [`OfflineHandler`](https://zenoo.github.io/offline-handler/OfflineHandler.html) object with the ressources to be cached as the first parameter :
 ```
 let ajax = new OfflineHandler(['path/to/customFile.js'], ...);
-```
+```  
+
+ - Call your URLs with an additional parameter : `?v=1`.  
+Changing this parameter will create a new version.
+
 * **Parameters**
 
 ```
