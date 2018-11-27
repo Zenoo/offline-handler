@@ -1,4 +1,4 @@
-# OfflineHandler [(Demo)](https://zenoo.github.io/offline-app-example/)
+# OfflineHandler [(Demo)](https://zenoo.github.io/offline-app-example/?v=1)
 
 Allow your users to use your website while offline easily
 
@@ -58,7 +58,7 @@ let ajax = new OfflineHandler(['path/to/customFile.js'], ...);
 
 * **Example**
 
-See this [Github project](https://zenoo.github.io/offline-app-example/) for a working example.
+See this [Github project](https://zenoo.github.io/offline-app-example/?v=1) for a working example.
 
 ## Authors
 
