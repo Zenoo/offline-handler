@@ -1,0 +1,24 @@
+{
+  "name": "offline-handler",
+  "version": "0.0.1",
+  "description": "Allow your users to use your website while offline easily",
+  "main": "OfflineHandler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zenoo/offline-handler.git"
+  },
+  "keywords": [
+	"offline",
+	"cache",
+	"serverless"
+  ],
+  "author": "Zenoo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Zenoo/offline-handler/issues"
+  },
+  "homepage": "https://github.com/Zenoo/offline-handler#readme"
+}
