@@ -26,7 +26,7 @@ class OfflineHandler{
 			this._parameters = {
 				version: this.version,
 				serviceWorkerPath: serviceWorkerPath || 'OfflineHandler-sw.min.js',
-				ressourceList: (ressourceList || []).concat([location.pathname.slice(1) + '?' + (versionParameter || 'v') + '=' + this.version]),
+				ressourceList: (ressourceList || []).concat([location.pathname + '?' + (versionParameter || 'v') + '=' + this.version]),
 				clearOldCache: typeof clearOldCache == 'undefined' || clearOldCache
 			};
 
