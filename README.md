@@ -1,4 +1,4 @@
-# OfflineHandler [(Demo)](https://zenoo.github.io/offline-app-example/?v=1)
+# OfflineHandler [(Demo)](https://zenoo.github.io/offline-app-example/)
 
 Allow your users to use your website while offline easily
 
@@ -62,7 +62,7 @@ Simply import `OfflineHandler.min.js` into your HTML **and** download <a href="h
 
 * **Example**
 
-See this [Github project](https://zenoo.github.io/offline-app-example/?v=1) for a working example.
+See this [Github project](https://github.com/Zenoo/offline-app-example) for a working example.
 
 ## Authors
 
