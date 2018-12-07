@@ -17,7 +17,7 @@ Simply import `OfflineHandler.min.js` into your HTML **and** download <a href="h
     let ajax = new OfflineHandler(['path/to/customFile.js'], ...);
     ```  
     
-  * Call your URLs with an additional parameter : `?v=1`  
+  * Call your URLs with an additional parameter : `?v=1`, or without any to get the default version.
     Changing this parameter will create a new cache version.
 
 * **Parameters**

@@ -16,7 +16,7 @@ class OfflineHandler{
 		  * Files current version
 		  * @type {String}
 		  */
-		this.version = new URL(location).searchParams.get(versionParameter || 'v');
+		this.version = new URL(location).searchParams.get(versionParameter || 'v') || '1';
 
 		if(this.version){
 			/**
