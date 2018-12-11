@@ -24,6 +24,7 @@ class OfflineHandler{
 			 * @private
 			 */
 			this._parameters = {
+				versionParameter,
 				version: this.version,
 				serviceWorkerPath: serviceWorkerPath || 'OfflineHandler-sw.min.js',
 				ressourceList: (ressourceList || []).concat([location.pathname + '?' + (versionParameter || 'v') + '=' + this.version]),
