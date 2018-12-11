@@ -31,9 +31,6 @@ class OfflineHandler{
 				clearOldCache: typeof clearOldCache == 'undefined' || clearOldCache
 			};
 
-			console.log(this._parameters);
-			console.log(JSON.stringify(this._parameters));
-
 			if('serviceWorker' in navigator){
 				navigator.serviceWorker
 					.register(this._parameters.serviceWorkerPath + '?param=' + encodeURIComponent(JSON.stringify(this._parameters)));
