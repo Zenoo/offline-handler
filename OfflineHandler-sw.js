@@ -7,28 +7,27 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', e => {
-	console.log(e.request);
 	e.respondWith(caches
 		.open(parameters.version)
 		.then(cache => cache
 			.match(e.request)
-			.then(resp => resp || fetch(e.request)
-				.then(response => {
-					cache.put(e.request, response.clone());
+			.then(resp => {
+				if(resp) return resp;
 
-					return response;
-				})
-				.catch(() => caches
-					.match(e.request)
-					.then(fallback => fallback)
-				)
-			)
+				const url = new URL(e.request.url);
+
+				url.searchParams.set(parameters.versionParameter, parameters.version);
+				console.log(url);
+
+				return fetch(url);
+			})
 		)
 	);
 });
 
 if(parameters.clearOldCache){
 	self.addEventListener('activate', e => {
+		console.log('activate');
 		e.waitUntil(
 			caches.keys().then(keyList => Promise.all(keyList.map(key => key == parameters.version ? Promise.resolve() : caches.delete(key))))
 		);
