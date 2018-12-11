@@ -11,7 +11,13 @@ self.addEventListener('fetch', e => {
 		.open(parameters.version)
 		.then(cache => cache
 			.match(e.request)
-			.then(resp => resp || fetch(e.request)
+			.then(resp => {
+				console.log(`In cache ${parameters.version}`);
+				console.log(`Requested ${e.request}`);
+				console.log(`Received ${resp}`);
+
+				return resp || fetch(e.request)
+			
 				.then(response => {
 					cache.put(e.request, response.clone());
 
@@ -20,8 +26,8 @@ self.addEventListener('fetch', e => {
 				.catch(() => caches
 					.match(e.request)
 					.then(fallback => fallback)
-				)
-			)
+				);
+			})
 		)
 	);
 });
