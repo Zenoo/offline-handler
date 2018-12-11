@@ -1,6 +1,14 @@
 const parameters = JSON.parse(new URL(location).searchParams.get('param'));
 
 self.addEventListener('install', e => {
+	if(parameters.clearOldCache){
+		caches.keys().then(keyList => {
+			keyList.filter(key => key != parameters.version).forEach(key => {
+				caches.delete(key);
+			});
+		});
+	}
+
 	e.waitUntil(
 		caches.open(parameters.version).then(cache => cache.addAll(parameters.ressourceList))
 	);
@@ -24,12 +32,3 @@ self.addEventListener('fetch', e => {
 		)
 	);
 });
-
-if(parameters.clearOldCache){
-	self.addEventListener('activate', e => {
-		console.log('activate');
-		e.waitUntil(
-			caches.keys().then(keyList => Promise.all(keyList.map(key => key == parameters.version ? Promise.resolve() : caches.delete(key))))
-		);
-	});
-}
