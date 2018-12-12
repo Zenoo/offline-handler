@@ -17,6 +17,7 @@ class OfflineHandler{
 		  * @type {String}
 		  */
 		this.version = new URL(location).searchParams.get(versionParameter || 'v') || '1';
+		console.log(this.version);
 
 		if(this.version){
 			/**
