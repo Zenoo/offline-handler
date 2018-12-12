@@ -1,6 +1,8 @@
 const parameters = JSON.parse(new URL(location).searchParams.get('param'));
 
 self.addEventListener('install', e => {
+	self.skipWaiting();
+
 	if(parameters.clearOldCache){
 		caches.keys().then(keyList => {
 			keyList.filter(key => key != parameters.version).forEach(key => {
