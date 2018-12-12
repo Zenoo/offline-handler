@@ -21,15 +21,14 @@ self.addEventListener('fetch', e => {
 		.open(parameters.version)
 		.then(cache => cache
 			.match(e.request)
-			.then(resp => {
-				if(resp) return resp;
-
-				const url = new URL(e.request.url);
-
-				url.searchParams.set(parameters.versionParameter, parameters.version);
-
-				return fetch(url);
-			})
+			.then(resp => resp || fetch(e.request)
+				.then(fetched => {
+					cache.put(e.request, fetched.clone());
+					
+					return fetched;
+				})
+				.catch(() => console.log(e.request),console.log(caches.match(e.request)),caches.match(e.request))
+			)
 		)
 	);
 });

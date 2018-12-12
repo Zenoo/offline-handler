@@ -53,9 +53,9 @@ Simply import `OfflineHandler.min.js` into your HTML **and** download <a href="h
 	 *  /|\ OPTIONAL /|\
 	 * Should the old cached versions be deleted when a new one is created ?
 	 * @type {String}
-	 * @default true
+	 * @default false
 	 */
-	const clearOldCache = true;
+	const clearOldCache = false;
 
 	new OfflineHandler(ressourceList, serviceWorkerPath, versionParameter, clearOldCache);
 ```
