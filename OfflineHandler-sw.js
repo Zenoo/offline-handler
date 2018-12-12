@@ -25,7 +25,6 @@ self.addEventListener('fetch', e => {
 				const url = new URL(e.request.url);
 
 				url.searchParams.set(parameters.versionParameter, parameters.version);
-				console.log(url);
 
 				return fetch(url);
 			})
