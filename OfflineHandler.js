@@ -17,7 +17,6 @@ class OfflineHandler{
 		  * @type {String}
 		  */
 		this.version = new URL(location).searchParams.get(versionParameter || 'v') || '1';
-		console.log(this.version);
 
 		if(this.version){
 			/**
@@ -31,8 +30,6 @@ class OfflineHandler{
 				ressourceList: (ressourceList || []).concat([location.pathname + '?' + (versionParameter || 'v') + '=' + this.version]),
 				clearOldCache: typeof clearOldCache == 'undefined' || clearOldCache
 			};
-
-			console.log(this._parameters);
 
 			if('serviceWorker' in navigator){
 				navigator.serviceWorker
