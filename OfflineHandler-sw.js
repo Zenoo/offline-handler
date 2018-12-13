@@ -1,4 +1,6 @@
-const parameters = JSON.parse(new URL(location).searchParams.get('param'));
+const 
+	url = new URL(location),
+	parameters = JSON.parse(url.searchParams.get('param'));
 
 self.addEventListener('install', e => {
 	self.skipWaiting();
@@ -17,18 +19,22 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', e => {
-	e.respondWith(caches
-		.open(parameters.version)
-		.then(cache => cache
-			.match(e.request)
-			.then(resp => resp || fetch(e.request)
-				.then(fetched => {
-					cache.put(e.request, fetched.clone());
-					
-					return fetched;
-				})
-				.catch(() => caches.match(e.request))
+	if(parameters.cacheExternalRequests || e.request.url.startsWith(url.origin) || parameters.ressourceList.includes(e.request.url)){
+		e.respondWith(caches
+			.open(parameters.version)
+			.then(cache => cache
+				.match(e.request)
+				.then(resp => resp || fetch(e.request)
+					.then(fetched => {
+						cache.put(e.request, fetched.clone());
+						
+						return fetched;
+					})
+					.catch(() => caches.match(e.request))
+				)
 			)
-		)
-	);
+		);
+	}else{
+		e.respondWith(fetch(e.request));
+	}
 });

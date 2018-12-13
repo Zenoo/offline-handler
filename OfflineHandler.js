@@ -10,8 +10,9 @@ class OfflineHandler{
 	 * @param {String}    [serviceWorkerPath=OfflineHandler-sw.min.js] Path to the OfflineHandler-sw.min.js file
 	 * @param {String}    [versionParameter=v]                         Cache version URL parameter
 	 * @param {Boolean}   [clearOldCache=false]                        Clear the old versions of the files once a new one is registered ?
+	 * @param {Boolean}   [cacheExternalRequests=false]                Cache requests external to the current domain ?
 	 */
-	constructor(ressourceList, serviceWorkerPath, versionParameter, clearOldCache){
+	constructor(ressourceList, serviceWorkerPath, versionParameter, clearOldCache, cacheExternalRequests){
 		/**
 		  * Files current version
 		  * @type {String}
@@ -28,7 +29,8 @@ class OfflineHandler{
 				version: this.version,
 				serviceWorkerPath: serviceWorkerPath || 'OfflineHandler-sw.min.js',
 				ressourceList: (ressourceList || []).concat([location.pathname + '?' + (versionParameter || 'v') + '=' + this.version]),
-				clearOldCache: typeof clearOldCache == 'undefined' ? false : clearOldCache
+				clearOldCache: typeof clearOldCache == 'undefined' ? false : clearOldCache,
+				cacheExternalRequests: typeof cacheExternalRequests == 'undefined' ? false : cacheExternalRequests
 			};
 
 			if('serviceWorker' in navigator){
