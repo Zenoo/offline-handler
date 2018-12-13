@@ -1,4 +1,4 @@
-const 
+const
 	url = new URL(location),
 	parameters = JSON.parse(url.searchParams.get('param'));
 
