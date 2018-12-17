@@ -27,7 +27,7 @@ class OfflineHandler{
 			this._parameters = {
 				versionParameter: versionParameter || 'v',
 				version: this.version,
-				serviceWorkerPath: serviceWorkerPath || 'OfflineHandler-sw.min.js',
+				serviceWorkerPath: serviceWorkerPath || new URL(location).origin + '/OfflineHandler-sw.min.js',
 				ressourceList: (ressourceList || []).concat([location.pathname + '?' + (versionParameter || 'v') + '=' + this.version]),
 				clearOldCache: typeof clearOldCache == 'undefined' ? false : clearOldCache,
 				cacheExternalRequests: typeof cacheExternalRequests == 'undefined' ? false : cacheExternalRequests
