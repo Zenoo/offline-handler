@@ -19,7 +19,7 @@ self.addEventListener('install', e => {
 });
 
 self.addEventListener('fetch', e => {
-	if((parameters.cacheExternalRequests || e.request.url.startsWith(url.origin) || parameters.ressourceList.includes(e.request.url)) && parameters.version != 'no-cache'){
+	if((parameters.cacheExternalRequests || e.request.url.startsWith(url.origin) || parameters.ressourceList.includes(e.request.url)) && e.request.method != 'POST'){
 		e.respondWith(caches
 			.open(parameters.version)
 			.then(cache => cache
